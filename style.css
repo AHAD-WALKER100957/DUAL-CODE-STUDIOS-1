@@ -1,0 +1,481 @@
+/* ==========================================================================
+   1. CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+    --primary-color: #0f172a;    /* Dark Navy Header/Footer */
+    --accent-color: #2563eb;     /* Modern Blue Accent */
+    --accent-hover: #1d4ed8;     /* Darker Blue Hover State */
+    --bg-color: #f8fafc;         /* Light Gray Background */
+    --card-bg: #ffffff;          /* White Card Background */
+    --text-color: #1e293b;       /* Charcoal Text Body */
+    --text-muted: #64748b;      /* Muted Text */
+    --border-color: #e2e8f0;    /* Soft Gray Borders */
+}
+
+/* ==========================================================================
+   2. Reset & Base Layout
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 2.5rem 10%;
+}
+
+/* ==========================================================================
+   3. Header & Dynamic Navigation
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 1.25rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.25rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   4. Component Styles (Hero, Cards, Buttons)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* CSS Grid for Leadership & Services */
+.founders-grid, .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.card, .service-item {
+    background: var(--card-bg);
+    padding: 1.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover, .service-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.role {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 0.25rem 0 0.75rem 0;
+}
+
+/* ==========================================================================
+   5. Forms & Input Fields (Contact & Login)
+   ========================================================================== */
+.form-section {
+    max-width: 580px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease, outline 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #ffffff;
+}
+
+button {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   6. Admin Dialog & Data Table
+   ========================================================================== */
+dialog {
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    max-width: 420px;
+    width: 90%;
+}
+
+dialog h3 {
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* ==========================================================================
+   7. Footer & Responsive Media Queries
+   ========================================================================== */
+footer {
+    background-color: var(--primary-color);
+    color: #94a3b8;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    main {
+        padding: 1.5rem 5%;
+    }
+}
+/* ==========================================================================
+   3D & Dynamic Enhancements
+   ========================================================================== */
+
+/* Perspective Container for 3D Elements */
+body {
+    perspective: 1000px; /* Gives child elements 3D depth perception */
+}
+
+/* Glassmorphism Hero Container */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero h2 {
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    color: #cbd5e1;
+}
+
+/* Background Interactive Canvas */
+#heroCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 3D Tilt Cards Setup */
+.card, .service-item {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    will-change: transform;
+}
+
+.card h3, .service-item h3 {
+    transform: translateZ(25px); /* Pops text forward in 3D space */
+}
+
+.card p, .service-item p {
+    transform: translateZ(15px); /* Pops body text slightly forward */
+}
+/* ==========================================================================
+   Advanced 3D & Micro-Interaction Styling
+   ========================================================================== */
+
+.hero-3d {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#threejs-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.hero-content a, .hero-content button {
+    pointer-events: auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-glow {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.9);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    margin-left: 0.75rem;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Stats Counter Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.stat-card h3 {
+    display: inline;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+}
+
+.stat-card span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Estimator Widget */
+.estimator-card {
+    max-width: 580px;
+    margin: 0 auto 2rem auto;
+    background: #ffffff;
+    padding: 1.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.estimator-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+}
+
+.estimator-controls label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.estimator-result {
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
